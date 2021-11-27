@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Quizz</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #ff3d00;
+        }
+        .start-btn, .info-box, .quiz-box, .result-box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .start-btn button{
+            font-size: 25px;
+            font-weight: 500;
+            color: #ff3d00;
+            padding: 15px 30px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+        }
+        .info-box{
+            display: none;
+            height: 500px;
+            width: 540px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .info-box .info-title{
+            height: 60px;
+            width: 100%;
+            border-bottom: 1px solid lightgrey;
+            display: flex;
+            align-items: center;
+            padding: 0 35px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .info-box .info-list{
+            padding: 15px 35px;
+        }
+        .info-box .info-list .info{
+            margin: 5px 0;
+            font-size: 17px;
+        }
+        .info-box .info-list .info span{
+            font-weight: 600;
+            color: #ff3d00;
+        }
+        .info-box .button{
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 35px;
+            border-top: 1px solid lightgrey;
+        }
+        .info-box .button button{
+            margin: 0 5px;
+            height: 40px;
+            width: 100px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button button.restart{
+            color: #fff;
+            background: #ff3d00;
+        }
+        .button button.restart:hover{
+            background: #c53509;
+        }
+        .button button.quit{
+            color: #ff3d00;
+            border-color: #ff3d00;
+        }
+        .button button.quit:hover{
+            color: #fff;
+            background: #ff3d00;
+        }
+        .quiz-box{
+            display: none;
+            width: 550px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .quiz-box header{
+            position: relative;
+            z-index: 99;
+            height: 70px;
+            padding: 0 30px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+        .quiz-box header .title{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .quiz-box header .timer{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 145px;
+            height: 45px;
+            background: #cce5ff;
+            border: 1px solid #b8daff;
+            border-radius: 5px;
+            padding: 0 8px;
+        }
+        .quiz-box header .timer .time-text{
+            font-weight: 400;
+            font-size: 17px;
+            user-select: none;
+        }
+        .quiz-box header .timer .time-sec{
+            font-size: 18px;
+            font-weight: 500;
+            background: #343a40;
+            height: 30px;
+            width: 45px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+            border: 1px solid #343a40;
+            user-select: none;
+        }
+        .quiz-box section{
+            padding: 25px 30px 20px 30px;
+            background: #fff;
+        }
+        .quiz-box section .que-text{
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .quiz-box section .option-list{
+            padding: 20px 0;
+            display: block;
+        }
+        section .option-list .option{
+            background: aliceblue;
+            border: 1px solid #84c5fe;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin-bottom: 15px;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transform: all 0.3s ease;
+        }
+        section .option-list .option:hover{
+            color: #004085;
+            background: #cce5ff;
+            border-color: #b8daff;
+        }
+        .option-list .option:last-child{
+            margin-bottom: 0px;
+        }
+        .option-list .option .icon{
+            height: 26px;
+            width: 26px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 13px;
+            line-height: 24px;
+            pointer-events: none;
+        }
+        .option-list .option .icon.tick{
+            color: #23903c;
+            border-color: #23903c;
+            background: #d4edda;
+        }
+        .option-list .option .icon.cross{
+            color: #a4283a;
+            border-color: #a4283a;
+            background: #f8d7da;
+        }
+        .quiz-box footer{
+            height: 60px;
+            width: 100%;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .quiz-box footer .total-que span{
+            display: flex;
+            user-select: none;
+        } 
+        footer .total-que span p{
+            font-weight: 500;
+            padding: 0 5px;
+        } 
+        .total-que span p:first-child{
+            padding-left: 0px;
+        }
+        footer .next-btn{
+            height: 40px;
+            padding: 0 13px;
+            font-size: 18px;
+            font-weight: 400;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #ff3d00;
+            border-radius: 5px;
+            border: 1px solid #ff3d00;
+            cursor: pointer;
+        }
+        footer .next-btn:hover{
+            background: #c53509;
+        }
+        .result-box{
+            background: #fff;
+            width: 450px;
+            padding: 25px 30px;
+            border-radius: 5px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .result-box .icon{
+            font-size: 100px;
+            color: #ff3d00;
+            margin-bottom: 10px;
+        }
+        .result-box .complete-text{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .result-box .score-text span{
+            display: flex;
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .score-text span p{
+            font-weight: 600;
+            padding: 0 4px;
+        }
+        .result-box .button{
+            display: flex;
+            margin: 20px 0;
+        }
+        .result-box .button button{
+            margin: 0 10px;
+            height: 40px;
+            padding: 0 20px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            border: 1px solid #ff3d00;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+     </style>
+</head>
+<body>
+    <div class="start-btn">
+        <button>Start Quiz</button>
+    </div>
+    <div class="info-box">
+        <div class="info-title">
+            <span>Some Rules of this Quiz</span>
+        </div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="button">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+    <div class="quiz-box">
+        <header>
+            <div class="title">Awesome Quiz Website</div>
+            <div class="timer">
+                <div class="time-text">Time Left</div>
+                <div class="time-sec">15</div>
+            </div>
+        </header>
+        <section>
+            <div class="que-text">
+                <span>1. Which of the following is a large blood vessel that carries blood away from the heart?</span>
+            </div>
+            <div class="option-list">
+                <div class="option">
+                    <span>Vein</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="option">
+                    <span>Artery</span>
+                    <div class="icon tick"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="option">
+                    <span>Capillary</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="option">
+                    <span>Nerve</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="total-que">
+                <span><p>2</p>of<p>5</p>Questions</span>
+            </div>
+            <button class="next-btn">Next Que</button>
+        </footer>
+    </div>
+    <div class="result-box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete-text">You've completed the Quiz!</div>
+        <div class="score-text">
+            <span>and sorry, You got only <p>2</p>out of <p>5</p></span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+</body>
+</html>

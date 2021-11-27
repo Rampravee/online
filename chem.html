@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>E-Learn</title>
+    <style>
+        body{
+            height: 100vh;
+            background-color: pink;
+            text-align: center;
+        }
+        h1{
+            color: cyan;
+        }
+        fieldset{
+            background-color: white;
+            width: 350px;
+            margin-left: 560px;
+        }
+        span{
+            color: #ff3d00;
+        }
+        #ram{
+            animation-name: animtext;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes animtext{
+            0%{
+                color: red;
+            }
+            25%{
+                color: maroon;
+            }
+            50%{
+                color: tomato;
+            }
+            75%{
+                color: blue;
+            }
+            100%{
+                color: violet;
+            }
+        }
+        .hhj{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="ram">Quizz Web</h1>
+        <h1 class="hhj"><span>E</span>-Learn</h1>
+        <h1 class="hhj">Chemistry <span>Quiz</span></h1>
+    </header>
+    <fieldset>
+              <h3><b>1: Highest percentage of nitrogen is found in which among the following <span>fertilizers</span> among the given options?</b></h3>
+              <label for="">Calcium ammonium nitrate</label>
+          <input type="radio" name="phone" value="Micheal"><br><br>
+          <label for="">Urea</label>
+          <input type="radio" name="phone" value="Urea"><br><br>
+          <label for="">Calcium nitrate</label>
+          <input type="radio" name="phone" value="Aristotle"><br><br>
+          </fieldset>
+  </div><br>
+  <div id="hello">
+      <fieldset>
+      <h3><b>2: Which among the following <span>elements</span> are generally find in free state?</b></h3>
+      <label for="">Group 13 elements</label>
+          <input type="radio" name="flim" value="Robert Hooke"><br><br>
+          <label for="">Group 12 elements</label>
+          <input type="radio" name="flim" value="Mulalo"><br><br>
+          <label for="">Group 11 elements</label>
+          <input type="radio" name="flim" value="Group 11 elements"><br><br>
+          </fieldset>
+          </div><br>
+  <div id="">
+      <fieldset>
+      <h3><b>3: Which among the following is the objective of the <span>Methyl tert-butyl</span> ether (MTBE) mixing with Petroleum?</b></h3>
+      <label for="">Raise Octane Number</label>
+          <input type="radio" name="light" value="Raise Octane Number"><br><br>
+          <label for="">Antioxidant Stabilizer</label>
+          <input type="radio" name="light" value="biology"><br><br>
+          <label for="">Lead Scavanger</label>
+          <input type="radio" name="light" value="physics"><br><br>
+          </fieldset>
+      </div><br>
+      <div id="pr">
+          <fieldset>
+          <h3><b>4: Oil of <span>mirbane</span> is the most common name of which among the following?</b></h3>
+          <label for="">Toluene</label>
+              <input type="radio" name="vaccine" value="Toluene"><br><br>
+              <label for="">Phenolphthalein</label>
+              <input type="radio" name="vaccine" value="Phenolphthalein"><br><br>
+              <label for="">Nitrobenzene</label>
+              <input type="radio" name="vaccine" value="Nitrobenzene"><br><br>
+              </fieldset>
+          </div><br>
+          <div id="bee">
+            <fieldset>
+              <h3><b>5: Trimethylxanthine is a chemical name of a <span>stimulant</span> which is found in tea and coffee. What is the popular name?</b></h3>
+              <label for="">Thein</label>
+                  <input type="radio" name="cd" value="Sony"><br><br>
+                  <label for="">Caffeine</label>
+                  <input type="radio" name="cd" value="Caffeine"><br><br>
+                  <label for="">Theobromine</label>
+                  <input type="radio" name="cd" value="Theobromine"><br><br><br><br>
+                     </fieldset><br>
+                     <button onclick="check()">Check Answers</button>
+                     <h2 id="score">Score:0</h2>
+              </div><br><br>
+</body>
+<script>
+    var score = 0;
+    function check() {
+        var phone = document.querySelector('input[name="phone"]:checked').value;
+        if (phone == "Urea") {
+            score = score +1;
+        }
+        var flim = document.querySelector('input[name="flim"]:checked').value;
+        if (flim == "Group 11 elements") {
+            score = score +1;
+        }
+        var light = document.querySelector('input[name="light"]:checked').value;
+        if (light == "Raise Octane Number") {
+            score = score +1;
+        }
+        var vaccine = document.querySelector('input[name="vaccine"]:checked').value;
+        if (vaccine == "Nitrobenzene") {
+            score = score +1;
+        }
+        var cd = document.querySelector('input[name="cd"]:checked').value;
+        if (cd == "Caffeine") {
+            score = score +1;
+        }
+        document.getElementById("score").innerText =
+        "Score: " + score;
+    }
+</script>
+</html>

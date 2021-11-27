@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>E-Learn</title>
+    <style>
+        body{
+            height: 100vh;
+            background-color: thistle;
+            text-align: center;
+        }
+        h1{
+            color: cyan;
+        }
+        fieldset{
+            background-color: white;
+            width: 350px;
+            margin-left: 560px;
+        }
+        span{
+            color: #ff3d00;
+        }
+        #ram{
+            animation-name: animtext;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes animtext{
+            0%{
+                color: red;
+            }
+            25%{
+                color: maroon;
+            }
+            50%{
+                color: tomato;
+            }
+            75%{
+                color: blue;
+            }
+            100%{
+                color: violet;
+            }
+        }
+        .hhj{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="ram">Quizz Web</h1>
+        <h1 class="hhj"><span>E</span>-Learn</h1>
+        <h1 class="hhj">Physics <span>Quiz</span></h1>
+    </header>
+    <fieldset>
+              <h3><b>1: The theory of <span>relativity</span> is presented by which scientist?</b></h3>
+              <label for="">Albert Einstein</label>
+          <input type="radio" name="phone" value="Albert Einstein"><br><br>
+          <label for="">Isaac Newton</label>
+          <input type="radio" name="phone" value="Urea"><br><br>
+          <label for="">Stephen Hawking</label>
+          <input type="radio" name="phone" value="Aristotle"><br><br>
+          </fieldset>
+  </div><br>
+  <div id="hello">
+      <fieldset>
+      <h3><b>2: What type of lens is used in a <span>magnifying glass</span>?</b></h3>
+      <label for="">Plano-concave</label>
+          <input type="radio" name="flim" value="Robert Hooke"><br><br>
+          <label for="">Concave</label>
+          <input type="radio" name="flim" value="Mulalo"><br><br>
+          <label for="">Convex</label>
+          <input type="radio" name="flim" value="Convex"><br><br>
+          </fieldset>
+          </div><br>
+  <div id="">
+      <fieldset>
+      <h3><b>3: Total number of colors exists in <span>sunlight</span>?</b></h3>
+      <label for="">9</label>
+          <input type="radio" name="light" value="Raise Octane Number"><br><br>
+          <label for="">7</label>
+          <input type="radio" name="light" value="7"><br><br>
+          <label for="">2</label>
+          <input type="radio" name="light" value="physics"><br><br>
+          </fieldset>
+      </div><br>
+      <div id="pr">
+          <fieldset>
+          <h3><b>4: Who is the first person to define <span>speed</span>?</b></h3>
+          <label for="">Galileo</label>
+              <input type="radio" name="vaccine" value="Galileo"><br><br>
+              <label for="">Newton</label>
+              <input type="radio" name="vaccine" value="Phenolphthalein"><br><br>
+              <label for="">Kepler</label>
+              <input type="radio" name="vaccine" value="Nitrobenzene"><br><br>
+              </fieldset>
+          </div><br>
+          <div id="bee">
+            <fieldset>
+              <h3><b>5: If the <span>spinning</span> speed of the earth is increased then the weight of body at the <span>equator</span> will be?</b></h3>
+              <label for="">Increases</label>
+                  <input type="radio" name="cd" value="Sony"><br><br>
+                  <label for="">Same</label>
+                  <input type="radio" name="cd" value="Caffeine"><br><br>
+                  <label for="">Decreases</label>
+                  <input type="radio" name="cd" value="Decreases"><br><br><br><br>
+                     </fieldset><br>
+                     <button onclick="check()">Check Answers</button>
+                     <h2 id="score">Score:0</h2>
+              </div><br><br>
+</body>
+<script>
+    var score = 0;
+    function check() {
+        var phone = document.querySelector('input[name="phone"]:checked').value;
+        if (phone == "Albert Einstein") {
+            score = score +1;
+        }
+        var flim = document.querySelector('input[name="flim"]:checked').value;
+        if (flim == "Convex") {
+            score = score +1;
+        }
+        var light = document.querySelector('input[name="light"]:checked').value;
+        if (light == "7") {
+            score = score +1;
+        }
+        var vaccine = document.querySelector('input[name="vaccine"]:checked').value;
+        if (vaccine == "Galileo") {
+            score = score +1;
+        }
+        var cd = document.querySelector('input[name="cd"]:checked').value;
+        if (cd == "Decreases") {
+            score = score +1;
+        }
+        document.getElementById("score").innerText =
+        "Score: " + score;
+    }
+</script>
+</html>

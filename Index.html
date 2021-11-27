@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>E-Learn</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        .header{
+            height: 100vh;
+            width: 100%;
+            padding: 0 8%;
+            position: relative;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            width: 140px;
+        }
+        .nav-links{
+            padding: 28px 0;
+        }
+        .nav-links li{
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .nav-links li a{
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 0;
+            position: relative;
+        }
+        .nav-links li a::after{
+            content: '';
+            background: #ff3d00;
+            width: 0;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: width 0.5s;
+        }
+        .nav-links li a:hover::after{
+            width: 100%;
+        }
+        .btn{
+            background: #ff3d00;
+            color: #fff;
+            padding: 10px 30px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .content{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 90%;
+            max-width: 900px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            padding-top: 50px;
+        }
+        .content h1{
+            font-size: 65px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .content form{
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+        }
+        .content form input{
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+        .content form button{
+            background: #ff3d00;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .category-list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .category{
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 61, 0, 0.15);
+            margin: 0 10px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .category img{
+            width: 25px;
+            margin-bottom: 5px;
+        }
+        .back-video{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;        
+            z-index: -100;
+        }
+        .mm{
+            text-align: center;
+            color: #fff;
+            background:rgb(43, 9, 9);
+        }
+        .fds{
+            width: 300px;
+            height: 300px;
+        }
+        fieldset{
+            width: 1500px;
+            border-radius: 50px;
+            border-style: groove;
+        }
+        .ooo{
+            width: 1510px;
+        }
+        .ooo img{
+        align-items: left;
+        }
+        .dss{
+            color: #ff3d00;
+            font-weight: 900;
+            font-family: cursive;
+        }
+        .dfs{
+            width: 250px;
+            height: 300px; 
+        }
+        #ram{
+            animation-name: animtext;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes animtext{
+            0%{
+                color: red;
+            }
+            25%{
+                color: yellowgreen;
+            }
+            50%{
+                color: tomato;
+            }
+            75%{
+                color: blue;
+            }
+            100%{
+                color: violet;
+            }
+        }
+        .gh{
+            width: 250px;
+        }
+        span{
+            color: #ff3d00;
+        }
+        .cff{
+            width: 500px;
+            height: 250px;
+            border-radius: 50px;
+            background: transparent;
+            color: white;
+        }
+        input::placeholder{
+            text-align: left;
+            font-size: large;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <video autoplay loop class="back-video" muted plays-inline>
+            <source src="video.mp4" type="video/mp4"> 
+        </video>
+        <nav>
+            <img src="logo.png" alt="" class="logo">
+            <ul class="nav-links">
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="#abt">About</a></li>
+                <li><a href="#ad">Ask Doubt</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <a href="sp.html"><li class="btn">Sign Up</li></a>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <h1>Learn Anything Online</h1>
+            <form>
+                <input type="text" placeholder="&#x270e; Enter Keyword">
+                <button><b>Find a Quiz</b></button>
+            </form>
+
+            <div class="category-list">
+                <div class="category">
+                    <a href="boi.html"><img src="boi.png" alt=""></a>
+                    <p>Biology</p>
+                </div>
+                <div class="category">
+                    <a href="chem.html"><img src="chem.png" alt=""></a>
+                    <p>Chemistry</p>
+                </div>
+                <div class="category">
+                    <a href="phy.html"><img src="phy.png" alt=""></a>
+                    <p>Physics</p>
+                </div>
+                <div class="category">
+                    <a href="zoo.html"><img src="zoo.png" alt=""></a>
+                    <p>Zoology</p>
+                </div>
+                <div class="category">
+                    <a href="gk.html"><img src="gk.png" alt=""></a>
+                    <p>Over all</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mm"><br>
+    <header>
+        <h1 id="abt">Father Of <span>Science</span></h1>
+    </header><br>
+    <fieldset>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Sir_CV_Raman.JPG" alt="" class="fds" id="ttr">
+        <img src="https://geniusrevive.com/wp-content/uploads/2017/05/Galileo.jpg" alt="" class="fds" id="ttr">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/sawaal.com/qaimg/who_is_the_father_of_modern_chemistry1538547478.jpg" alt="" class="fds" id="ttr">
+        <img src="data:image/jpeg;base64,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" alt="" class="fds" id="ttr">
+    </fieldset><br>
+    <hr><br>
+    <fieldset class="ooo"><br>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Sir_CV_Raman.JPG" alt="" class="dfs">
+        <h1 class="dss"><b>CV Raman</b></h1>
+        <h3 id="ram">His birthday is celebrated as World Science Day🎂🍰</h3><br>
+        <p>Sir Chandrasekhara Venkata Raman FRS was an Indian physicist known for his work in the field of light scattering. Using a spectrograph that he developed, he and his student K. S. Krishnan discovered that when light traverses a transparent material, the deflected light changes its wavelength and frequency. This phenomenon, a hitherto unknown type of scattering of light, which they called "modified scattering" was subsequently termed the Raman effect or Raman scattering. Raman received the 1930 Nobel Prize in Physics for the discovery and was the first Asian to receive a Nobel Prize in any branch of science. Born to Tamil Brahmin parents, Raman was a precocious child, completing his secondary and higher secondary education from St Aloysius' Anglo-Indian High School at the ages of 11 and 13, respectively. He topped the bachelor's degree examination of the University of Madras with honours in physics from Presidency College at age 16. His first research paper, on diffraction of light, was published in 1906 while he was still a graduate student. The next year he obtained a master's degree. He joined the Indian Finance Service in Calcutta as Assistant Accountant General at age 19. There he became acquainted with the Indian Association for the Cultivation of Science (IACS), the first research institute in India, which allowed him to do independent research and where he made his major contributions in acoustics and optics.</p>
+    </fieldset><br>
+    <hr><br>
+    <fieldset class="ooo"><br>
+        <img src="https://geniusrevive.com/wp-content/uploads/2017/05/Galileo.jpg" alt="">
+        <h1 class="dss"><b>Galileo Galilei</b></h1><br>
+        <p>Galileo studied speed and velocity, gravity and free fall, the principle of relativity, inertia, projectile motion and also worked in applied science and technology, describing the properties of pendulums and "hydrostatic balances". He invented the thermoscope and various military compasses, and used the telescope for scientific observations of celestial objects. His contributions to observational astronomy include telescopic confirmation of the phases of Venus, observation of the four largest satellites of Jupiter, observation of Saturn's rings, and analysis of sunspots.
+
+            Galileo's championing of Copernican heliocentrism (Earth rotating daily and revolving around the sun) was met with opposition from within the Catholic Church and from some astronomers. The matter was investigated by the Roman Inquisition in 1615, which concluded that heliocentrism was foolish, absurd, and heretical since it contradicted Holy Scripture. Galileo later defended his views in Dialogue Concerning the Two Chief World Systems (1632), which appeared to attack Pope Urban VIII and thus alienated both the Pope and the Jesuits, who had both supported Galileo up until this point. He was tried by the Inquisition, found "vehemently suspect of heresy", and forced to recant. He spent the rest of his life under house arrest. During this time, he wrote Two New Sciences (1638), primarily concerning kinematics and the strength of materials, summarizing work he had done around.</p>
+    </fieldset><br>
+    <hr><br>
+    <fieldset class="ooo"><br>
+        <img src="https://s3-ap-southeast-1.amazonaws.com/sawaal.com/qaimg/who_is_the_father_of_modern_chemistry1538547478.jpg" alt="" class="fds">
+        <h1 class="dss"><b>Antoine Lavoisier</b></h1><br>
+        <p>Antoine-Laurent Lavoisier was born to a wealthy family of the nobility in Paris on 26 August 1743. The son of an attorney at the Parlement of Paris, he inherited a large fortune at the age of five upon the death of his mother. Lavoisier began his schooling at the Collège des Quatre-Nations, University of Paris (also known as the Collège Mazarin) in Paris in 1754 at the age of 11. In his last two years (1760–1761) at the school, his scientific interests were aroused, and he studied chemistry, botany, astronomy, and mathematics. In the philosophy class he came under the tutelage of Abbé Nicolas Louis de Lacaille, a distinguished mathematician and observational astronomer who imbued the young Lavoisier with an interest in meteorological observation, an enthusiasm which never left him. Lavoisier entered the school of law, where he received a bachelor's degree in 1763 and a licentiate in 1764. Lavoisier received a law degree and was admitted to the bar, but never practiced as a lawyer. However, he continued his scientific education in his spare time. Lavoisier's education was filled with the ideals of the French Enlightenment of the time, and he was fascinated by Pierre Macquer's dictionary of chemistry. He attended lectures in the natural sciences. Lavoisier's devotion and passion for chemistry were largely influenced by Étienne Condillac, a prominent French scholar of the 18th century. His first chemical publication appeared in 1764. From 1763 to 1767, he studied geology under Jean-Étienne Guettard. In collaboration with Guettard, Lavoisier worked on a geological survey of Alsace-Lorraine in June 1767. In 1764 he read his first paper to the French Academy of Sciences, France's most elite scientific society, on the chemical and physical properties of gypsum (hydrated calcium sulfate), and in 1766 he was awarded a gold medal by the King for an essay on the problems of urban street lighting. In 1768 Lavoisier received a provisional appointment to the Academy of Sciences. In 1769, he worked on the first geological map of France.</p>
+    </fieldset><br>
+    <hr><br>
+    <fieldset class="ooo"><br>
+        <img src="data:image/jpeg;base64,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" alt="" class="fds">
+        <h1 class="dss"><b>Aristotle</b></h1><br>
+        <p>Aristotle was a Greek philosopher and polymath during the Classical period in Ancient Greece. Taught by Plato, he was the founder of the Lyceum, the Peripatetic school of philosophy, and the Aristotelian tradition. His writings cover many subjects including physics, biology, zoology, metaphysics, logic, ethics, aesthetics, poetry, theatre, music, rhetoric, psychology, linguistics, economics, politics, meteorology, geology and government. Aristotle provided a complex synthesis of the various philosophies existing prior to him. It was above all from his teachings that the West inherited its intellectual lexicon, as well as problems and methods of inquiry. As a result, his philosophy has exerted a unique influence on almost every form of knowledge in the West and it continues to be a subject of contemporary philosophical discussion. Little is known about his life. Aristotle was born in the city of Stagira in Northern Greece. His father, Nicomachus, died when Aristotle was a child, and he was brought up by a guardian. At seventeen or eighteen years of age he joined Plato's Academy in Athens and remained there until the age of thirty-seven (c. 347 BC).[5] Shortly after Plato died, Aristotle left Athens and, at the request of Philip II of Macedon, tutored Alexander the Great beginning in 343 BC.[6] He established a library in the Lyceum which helped him to produce many of his hundreds of books on papyrus scrolls. Though Aristotle wrote many elegant treatises and dialogues for publication, only around a third of his original output has survived, none of it intended for publication. Aristotle's views profoundly shaped medieval scholarship. The influence of physical science extended from Late Antiquity and the Early Middle Ages into the Renaissance, and were not replaced systematically until the Enlightenment and theories such as classical mechanics were developed.</p>
+    </fieldset><br>
+    <hr><br>
+    <h1 id="ad">Ask a <span>Doubt</span></h1><br>
+    <fieldset>
+        <img src="review.png" alt="" class="gh">
+        <h2>Hi I am a expert from <span>E-Learn</span></h2><br>
+        <h3>I have 2 years+ experience as a teacher in E-Learn learning <br> platform and 2000+ students have clarified their doubt by me so if u <br> have any doubt ask to me. As i am in online 24/7.</h3><br>
+        <input type="text" placeholder="Ask a doubt🤔" class="cff"><br><br><br><br>
+    </fieldset><br>
+    <hr><br>
+    <marquee><h1 id="ram">Thank You 😁</h1></marquee><br><br>
+    <hr><br>
+    </div>
+</body>
+</html>
